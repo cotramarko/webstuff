@@ -1,12 +1,12 @@
 import numpy as np
-import matplotlib
+# import matplotlib
 # matplotlib.use('TkAgg')
 
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.mplot3d import Axes3D
 
 from projectile import Projectile
-from draw import Draw
+#from draw import Draw
 
 
 class Scenario2D():

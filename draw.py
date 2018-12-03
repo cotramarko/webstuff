@@ -1,3 +1,4 @@
+"""
 import numpy as np
 import matplotlib
 # matplotlib.use('TkAgg')
@@ -59,3 +60,4 @@ class Draw():
         ax.set_xlabel('x')
         ax.set_ylabel('z')
         plt.show()
+"""

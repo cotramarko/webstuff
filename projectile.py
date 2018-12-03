@@ -1,9 +1,9 @@
 import numpy as np
-import matplotlib
+# import matplotlib
 # matplotlib.use('TkAgg')
 
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.mplot3d import Axes3D
 
 
 def set_axes_equal(ax):
@@ -109,6 +109,7 @@ def set_proper_ticks(old_ticks):
     return []
 
 
+"""
 if __name__ == '__main__':
     init_pos = np.array([0, 0, 0]).astype(np.int32)
     init_vel = np.array(
@@ -215,3 +216,4 @@ if __name__ == '__main__':
     plt.xlabel('t')
     plt.ylabel('z_acc')
     plt.show()
+"""

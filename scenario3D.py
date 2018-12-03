@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib
+#import matplotlib
 
 from projectile import Projectile
 
