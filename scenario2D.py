@@ -10,9 +10,7 @@ from projectile import Projectile
 
 
 class Scenario2D():
-    def __init__(self, target=1080, tolerance=5, dt=0.001, mass=0.080, rho=1.2, r=0.045, drag_coeff=0.47, wind=None):
-        self.target = target
-        self.tolerance = tolerance
+    def __init__(self, dt=0.001, mass=0.080, rho=1.2, r=0.045, drag_coeff=0.47, wind=None):
         self.dt = dt
 
         self.mass = mass
@@ -48,17 +46,6 @@ class Scenario2D():
         xyz = np.array([x, y, z])
         return xyz
 
-    def _is_a_hit(self, distance):
-        if distance <= self.tolerance:
-            return True
-        else:
-            return False
-
-    def _distance_from_target(self, xyz):
-        impact_point_x = xyz[0, -1]
-        distance = np.abs(impact_point_x - self.target)
-        return distance
-
     def shoot(self, angle_in_deg, speed):
         self.angle_in_deg = angle_in_deg
 
@@ -88,19 +75,5 @@ class Scenario2D():
             )
 
         self.xyz = self._simulate_trajectory()
-        self.distance = self._distance_from_target(self.xyz)
 
-        return self._is_a_hit(self.distance), self.distance, self.xyz
-
-
-if __name__ == '__main__':
-    wind = np.random.normal(loc=0, scale=10, size=3)
-    wind[1:3] = 0
-
-    mass = 0.06
-    r = 0.08
-
-    sc = Scenario2D(wind=np.array([-64.23, 0, 0]), r=r, mass=mass, dt=0.0001)
-    _, _, xyz = sc.shoot(16.1, 699.41)
-
-    print(xyz[0, -1])
+        return self.xyz
