@@ -7,8 +7,8 @@ from parameters import Parameters
 PARAMS = Parameters(
     mass_lb=0.05,
     mass_ub=1,
-    radius_lb=0.001,
-    radius_ub=0.1,
+    radius_lb=0.01,
+    radius_ub=0.2,
     wind_vel_lb=0,
     wind_vel_ub=300,
     proj_vel_lb=100,

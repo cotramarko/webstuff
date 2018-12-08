@@ -10,9 +10,10 @@ ANSWERS = {
 }
 
 PDF_LINKS = {
-    'PROBLEM1': "",  # Contains all info up to problem 1
-    'PROBLEM2': "",  # Problem 2 info
-    'PROBLEM3': ""   # Problem 3 info
+    # Contains all info up to problem 1
+    'PROBLEM1': "https://www.dropbox.com/s/pfras3zacng9lae/problem1.pdf?dl=0",
+    'PROBLEM2': "https://www.dropbox.com/s/pn7drdm3div0h8h/problem2.pdf?dl=0",  # Problem 2 info
+    'PROBLEM3': "https://www.dropbox.com/s/l5y6n0w8p5bkc37/problem3.pdf?dl=0"   # Problem 3 info
 }
 
 
@@ -22,7 +23,7 @@ problem2 = Problem2()
 problem3 = Problem3()
 
 
-@app.route('/scenario1#656690c0a658fefea3a2033f437bffe8', methods=['GET', 'POST'])
+@app.route('/scenario1-656690c0a658fefea3a2033f437bffe8', methods=['GET', 'POST'])
 def scenario1():
     if request.method == 'GET':
         # Get scenario_parameters
@@ -45,17 +46,18 @@ def scenario1():
         }
         if valid_guess:
             d = ANSWERS['RED']
-            resp['Next Problem'] = PDF_LINKS['PROBLEM2']
+            resp['LINK TO INSTRUCTIONS FOR NEXT PROBLEM'] = PDF_LINKS['PROBLEM2']
             for k in d.keys():
                 resp[k] = d[k]
+        else:
+            resp['The parameters of the scenario have changed!'] = problem1.scenario_state
 
         # Create new scenario_parameters
         problem1.setup_scenario()
-        resp['The parameters of the scenario have changed!'] = problem1.scenario_state
         return jsonify(resp)
 
 
-@app.route('/scenario2#1884e8509182844979d1864092796467', methods=['GET', 'POST'])
+@app.route('/scenario2-1884e8509182844979d1864092796467', methods=['GET', 'POST'])
 def scenario2():
     if request.method == 'GET':
         # Get scenario_parameters
@@ -81,7 +83,7 @@ def scenario2():
 
         if valid_guess:
             d = ANSWERS['BLUE']
-            resp['Next Problem'] = PDF_LINKS['PROBLEM3']
+            resp['LINK TO INSTRUCTIONS FOR NEXT PROBLEM'] = PDF_LINKS['PROBLEM3']
             for k in d.keys():
                 resp[k] = d[k]
 
@@ -92,7 +94,7 @@ def scenario2():
         return jsonify(resp)
 
 
-@app.route('/scenario3#36376971dc4d9fb15505d68ac9b042a2', methods=['GET', 'POST'])
+@app.route('/scenario3-36376971dc4d9fb15505d68ac9b042a2', methods=['GET', 'POST'])
 def scenario3():
     if request.method == 'GET':
         # Get scenario_parameters

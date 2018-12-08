@@ -77,3 +77,22 @@ class Scenario2D():
         self.xyz = self._simulate_trajectory()
 
         return self.xyz
+
+
+if __name__ == '__main__':
+    mass = 0.95
+    r = 0.17
+    dt = 0.0001
+
+    angle = 82.33
+    vel = 176.43
+
+    wind = np.array([-253.33, 0, 0])
+
+    sc = Scenario2D(mass=mass, r=r, dt=dt, wind=wind)
+
+    xyz = sc.shoot(angle, vel)
+
+    poi = xyz[:, -1]
+    print(poi[0])
+    print(poi[1])

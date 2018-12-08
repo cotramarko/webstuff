@@ -81,16 +81,16 @@ class Scenario3D():
 
 
 if __name__ == '__main__':
-    mass = 0.32
-    r = 0.01
+    mass = 0.42
+    r = 0.02
     dt = 0.0001
 
-    phi_in_deg = 89.73
-    theta_in_deg = 119.35
-    proj_vel = 9098.86
+    phi_in_deg = 94.85
+    theta_in_deg = 86.76
+    proj_vel = 152.34
 
-    wind_speed = 138.31
-    wind_angle_deg = 335.28
+    wind_speed = 238.5
+    wind_angle_deg = 31.48
 
     wind_x = np.cos(np.deg2rad(wind_angle_deg)) * wind_speed
     wind_y = np.sin(np.deg2rad(wind_angle_deg)) * wind_speed
